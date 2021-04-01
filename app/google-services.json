@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "870952076131",
+    "project_id": "canvasgalerija-e9ebb",
+    "storage_bucket": "canvasgalerija-e9ebb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:870952076131:android:bd43d828ba709dde3b4956",
+        "android_client_info": {
+          "package_name": "com.example.canvasgalerija"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "870952076131-lkpho2l56ak14qh2abbfk43psf7v6eiq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzawctbIjRERgbPC6lFgqusxkcXm-Uvow"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "870952076131-lkpho2l56ak14qh2abbfk43psf7v6eiq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

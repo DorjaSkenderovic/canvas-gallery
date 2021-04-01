@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">CanvasGalerija</string>
+
+    <string name="first_slide">Za uređenje Vašeg doma</string>
+    <string name="second_slide">Izaberi svoje slike</string>
+    <string name="third_slide">Završi kupovinu</string>
+    <string name="fourth_slide">Brza isporuka</string>
+
+    <string name="description">Zidne slike štampane na canvas platnu.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
