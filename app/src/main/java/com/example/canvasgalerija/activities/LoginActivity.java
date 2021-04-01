@@ -23,6 +23,10 @@ public class LoginActivity extends AppCompatActivity {
     EditText email, password;
     private FirebaseAuth auth;
 
+    //Tu bi trebala da popravis rutu
+
+    //Trebalo bi i nesto drugo
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
