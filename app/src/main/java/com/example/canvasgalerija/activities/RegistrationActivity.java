@@ -2,7 +2,6 @@ package com.example.canvasgalerija.activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -25,20 +24,16 @@ public class RegistrationActivity extends AppCompatActivity {
     EditText firstname, lastname, email, password, repeatpassword;
     private FirebaseAuth auth;
 
-    SharedPreferences sharedPreferences;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-
-        auth = FirebaseAuth.getInstance();
+/*        auth = FirebaseAuth.getInstance();
 
         if (auth.getCurrentUser() != null){
             startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
             finish();
-        }
-
+        }*/
 
         firstname = findViewById(R.id.firstname);
         lastname = findViewById(R.id.lastname);

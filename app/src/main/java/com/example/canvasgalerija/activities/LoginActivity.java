@@ -1,8 +1,5 @@
 package com.example.canvasgalerija.activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
@@ -11,6 +8,9 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.canvasgalerija.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -102,6 +102,5 @@ public class LoginActivity extends AppCompatActivity {
 
     public void register(View view) {
         startActivity(new Intent(LoginActivity.this, RegistrationActivity.class));
-
     }
 }
