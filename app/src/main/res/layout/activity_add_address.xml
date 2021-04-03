@@ -12,6 +12,7 @@
         android:id="@+id/add_address_toolbar"
         android:background="#121212"
         app:title="Unesi adresu"
+        app:titleTextColor="@color/plavozelena"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +25,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
         android:text="Unesi adresu"
+        android:textColor="@color/plavozelena"
         android:textSize="24sp"
+        android:fontFamily="@font/aclonica"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_address_toolbar" />
 
@@ -41,6 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8">
         <EditText
             android:id="@+id/add_name"
+            android:fontFamily="@font/aclonica"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="text"/>
@@ -61,6 +65,7 @@
             android:id="@+id/add_lastname"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fontFamily="@font/aclonica"
             android:inputType="text"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,6 +83,7 @@
         <EditText
             android:id="@+id/add_address"
             android:layout_width="match_parent"
+            android:fontFamily="@font/aclonica"
             android:layout_height="match_parent"
             android:inputType="text"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -97,6 +103,7 @@
             android:id="@+id/add_city"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fontFamily="@font/aclonica"
             android:inputType="text"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -113,6 +120,7 @@
     app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
     <EditText
         android:id="@+id/add_postal_code"
+        android:fontFamily="@font/aclonica"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:inputType="number"/>
@@ -133,24 +141,25 @@
             android:id="@+id/add_phone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fontFamily="@font/aclonica"
             android:inputType="number"/>
     </com.google.android.material.textfield.TextInputLayout>
 
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/add_address_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:text="Dodaj adresu"
-        android:textColor="@color/prljavoroza"
         android:backgroundTint="@color/darkblue"
+        android:fontFamily="@font/aclonica"
+        android:text="Dodaj adresu"
+        app:layout_constraintWidth_percent="0.9"
+        android:textColor="@color/prljavoroza"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

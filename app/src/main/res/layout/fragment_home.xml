@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="9dp"
             android:orientation="horizontal"
+            android:layout_marginTop="8dp"
             android:weightSum="2">
 
             <TextView
@@ -33,6 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/amethysta"
+                android:textColor="@color/plavozelena"
                 android:text="Kategorije"
                 android:textSize="21sp"
                 android:textStyle="bold" />
@@ -74,6 +76,7 @@
                         android:layout_marginLeft="9dp"
                         android:fontFamily="@font/amethysta"
                         android:text="Novo u ponudi"
+                        android:textColor="@color/plavozelena"
                         android:textSize="21sp"
                         android:textStyle="bold" />
 
@@ -103,9 +106,12 @@
                     android:id="@+id/popular_products"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
                     android:layout_marginLeft="9dp"
+                    android:layout_marginBottom="3dp"
                     android:fontFamily="@font/amethysta"
-                    android:text="Vaš izbor"
+                    android:text="Ponuda nedelje"
+                    android:textColor="@color/plavozelena"
                     android:textSize="21sp"
                     android:textStyle="bold" />
 
