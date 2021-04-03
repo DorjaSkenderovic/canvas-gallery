@@ -45,6 +45,13 @@ public class ShowAllActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         firestore = FirebaseFirestore.getInstance();
 
         recyclerView = findViewById(R.id.show_all_rec);
