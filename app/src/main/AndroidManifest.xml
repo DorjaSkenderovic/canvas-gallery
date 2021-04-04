@@ -12,11 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CanvasGalerija">
         <activity android:name=".activities.WelcomeActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity android:name=".activities.PaymentActivity" />
         <activity android:name=".activities.AddAddressActivity" />
@@ -24,9 +21,15 @@
         <activity android:name=".activities.CartActivity" />
         <activity android:name=".activities.ShowAllActivity" />
         <activity android:name=".activities.DetailedActivity" />
-        <activity android:name=".activities.OnBoardingActivity" />
-        <activity android:name=".activities.RegistrationActivity">
+        <activity android:name=".activities.OnBoardingActivity" >
 
+        </activity>
+        <activity android:name=".activities.RegistrationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.MainActivity">

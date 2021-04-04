@@ -7,7 +7,7 @@
     tools:context=".activities.ShowAllActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:theme="@style/Theme.AppCompat.Light"
+        android:theme="@style/ToolbarColoredBackArrow"
         android:id="@+id/show_all_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

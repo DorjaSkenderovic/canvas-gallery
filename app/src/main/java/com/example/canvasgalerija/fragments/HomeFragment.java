@@ -151,7 +151,7 @@ public class HomeFragment extends Fragment {
                     }
                 });
 
-        //Vas izbor
+        //Ponuda nedelje
         vasIzborRecyclerview.setLayoutManager(new GridLayoutManager(getActivity(),2));
         vasIzborModelList = new ArrayList<>();
         vasIzborAdapter = new VasIzborAdapter(getContext(),vasIzborModelList);

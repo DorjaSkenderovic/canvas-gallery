@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.Toolbar
-        android:theme="@style/Theme.AppCompat.Light"
+        android:theme="@style/ToolbarColoredBackArrow"
         android:id="@+id/detailed_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -178,7 +178,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:drawableLeft="@drawable/mycart"
-        android:drawableTint="@color/white"
+        android:drawableTint="@color/prljavoroza"
         android:padding="14dp"
         android:text="Dodaj u korpu"
         android:textAllCaps="false"
@@ -196,7 +196,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:drawableLeft="@drawable/shoppingcart"
-        android:drawableTint="@color/white"
+        android:drawableTint="@color/prljavoroza"
         android:padding="14dp"
         android:text="Kupi odmah"
         android:textAllCaps="false"

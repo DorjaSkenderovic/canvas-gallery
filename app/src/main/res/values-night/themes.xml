@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.CanvasGalerija" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:navigationBarColor">@color/darktheme</item>
         <!-- Primary brand color.-->
         <item name="colorPrimary">@color/plavolila</item>
         <item name="colorPrimaryVariant">@color/darkblue</item>
@@ -10,7 +11,16 @@
         <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+<!--        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>-->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/darktheme</item>
         <!-- Customize your theme here. -->
+        <item name="toolbarNavigationButtonStyle">@color/prljavoroza</item>
+    </style>
+    <style name="ToolbarColoredBackArrow">
+        <item name="android:textColorSecondary">@color/plavolila</item>
+    </style>
+    <style name="Outline" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/plavolila</item>
+        <item name="boxStrokeWidth">1dp</item>
     </style>
 </resources>

@@ -7,14 +7,14 @@
     tools:context=".activities.CartActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:theme="@style/Theme.AppCompat.Light"
         android:id="@+id/my_cart_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:background="#121212"
-        app:title="Korpa"
+        app:title=" "
+        android:theme="@style/ToolbarColoredBackArrow"
         app:titleTextColor="@color/prljavoroza"/>
 
     <TextView
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="#121212"
-        android:fontFamily="@font/amethysta"
+        android:fontFamily="@font/aclonica"
         android:gravity="center"
         android:padding="18dp"
         android:text="Ukupna cena: 0 RSD"

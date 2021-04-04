@@ -13,7 +13,8 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="Subotica"
-        android:textColor="@color/darkblue"
+        android:fontFamily="@font/aclonica"
+        android:textColor="@color/plavolila"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
