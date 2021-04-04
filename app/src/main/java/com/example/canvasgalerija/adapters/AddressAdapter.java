@@ -19,14 +19,18 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
 
     Context context;
     List<AddressModel> addressModelList;
-    SelectedAddress selectedAddress;
+    String selectedAddress;
 
+    public String selectedAddress() {
+        return selectedAddress;
+    }
 
     private RadioButton selectedRadioBtn;
 
-    public AddressAdapter(Context context, List<AddressModel> addressModelList, SelectedAddress selectedAddress) {
+    public AddressAdapter(Context context, List<AddressModel> addressModelList, String selectedAddress) {
         this.context = context;
         this.addressModelList = addressModelList;
+        this.selectedAddress = selectedAddress;
     }
 
 
@@ -53,7 +57,7 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
                 }
                 selectedRadioBtn = (RadioButton) v;
                 selectedRadioBtn.setChecked(true);
-                selectedAddress.setAddress(addressModelList.get(position).getUserAddress());
+                selectedAddress = addressModelList.get(position).getUserAddress();
             }
         });
 
@@ -73,9 +77,4 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
             radioButton = itemView.findViewById(R.id.select_address);
         }
     }
-
-    public interface SelectedAddress {
-        void setAddress(String address);
-    }
-    
 }

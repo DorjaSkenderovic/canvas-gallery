@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,7 +28,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddressActivity extends AppCompatActivity implements AddressAdapter.SelectedAddress {
+public class AddressActivity extends AppCompatActivity {
 
     Button addAddress;
     RecyclerView recyclerView;
@@ -67,7 +68,7 @@ public class AddressActivity extends AppCompatActivity implements AddressAdapter
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         addressModelList = new ArrayList<>();
-        addressAdapter = new AddressAdapter(getApplicationContext(),addressModelList,this);
+        addressAdapter = new AddressAdapter(getApplicationContext(),addressModelList,"");
         recyclerView.setAdapter(addressAdapter);
 
         firestore.collection("CurrentUser").document(auth.getCurrentUser().getUid())
@@ -105,12 +106,16 @@ public class AddressActivity extends AppCompatActivity implements AddressAdapter
                     amount = showAllModel.getPrice();
                 }
 
-                Intent intent = new Intent(AddressActivity.this, PaymentActivity.class);
-                intent.putExtra("amount", amount);
-                startActivity(intent);
-
+                if(addressModelList.isEmpty()){
+                    Toast.makeText(AddressActivity.this, "Dodaj podatke za isporuku.", Toast.LENGTH_SHORT).show();
+                } else if(addressAdapter.selectedAddress() == "") {
+                    Toast.makeText(AddressActivity.this, "Izberi podatke za isporuku.", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent(AddressActivity.this, PaymentActivity.class);
+                    intent.putExtra("amount", amount);
+                    startActivity(intent);
+                }
             }
-
         });
 
         addAddress.setOnClickListener(new View.OnClickListener() {
@@ -119,10 +124,5 @@ public class AddressActivity extends AppCompatActivity implements AddressAdapter
                 startActivity(new Intent(AddressActivity.this,AddAddressActivity.class));
             }
         });
-    }
-
-    @Override
-    public void setAddress(String address) {
-        mAddress = address;
     }
 }
