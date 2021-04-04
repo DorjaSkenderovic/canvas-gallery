@@ -7,15 +7,25 @@ public class VasIzborModel implements Serializable {
     String rating;
     int price;
     String img_url;
+    String description;
 
     public VasIzborModel() {
     }
 
-    public VasIzborModel(String name, String rating, int price, String img_url) {
+    public VasIzborModel(String name, String rating, int price, String img_url, String description) {
         this.name = name;
         this.rating = rating;
         this.price = price;
         this.img_url = img_url;
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getName() {

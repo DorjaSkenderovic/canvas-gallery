@@ -33,7 +33,7 @@
             android:fontFamily="@font/aclonica"
             android:padding="6dp"
             android:text="SALE"
-            android:textColor="@color/plavozelena"
+            android:textColor="@color/plavolila"
             android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"

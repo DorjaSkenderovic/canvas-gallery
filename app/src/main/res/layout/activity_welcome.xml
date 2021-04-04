@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.WelcomeActivity"
-    android:background="@drawable/image">
+    android:background="@drawable/image"
+    tools:context=".activities.WelcomeActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -19,6 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="160dp"
@@ -31,7 +32,6 @@
 
         <Button
             android:id="@+id/guest"
-            android:onClick="guest"
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_alignParentStart="true"
@@ -40,47 +40,47 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="20dp"
+            android:fontFamily="@font/aclonica"
+            android:onClick="guest"
             android:padding="14dp"
             android:text="Gost"
-            android:fontFamily="@font/aclonica"
             android:textAllCaps="false"
             android:textColor="@color/prljavoroza"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/login"
-            android:onClick="login"
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_below="@+id/guest"
             android:layout_marginStart="20dp"
             android:layout_marginTop="18dp"
             android:layout_marginEnd="20dp"
+            android:fontFamily="@font/aclonica"
+            android:onClick="login"
             android:padding="14dp"
             android:text="Prijavi se"
-            android:fontFamily="@font/aclonica"
             android:textAllCaps="false"
             android:textColor="@color/prljavoroza"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/register"
-            android:onClick="register"
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_below="@+id/login"
             android:layout_marginStart="20dp"
             android:layout_marginTop="18dp"
             android:layout_marginEnd="20dp"
-            android:padding="14dp"
-            android:fontFamily="@font/aclonica"
             android:layout_marginBottom="30dp"
+            android:fontFamily="@font/aclonica"
+            android:onClick="register"
+            android:padding="14dp"
             android:text="Kreiraj nalog"
             android:textAllCaps="false"
             android:textColor="@color/prljavoroza"
             android:textStyle="bold" />
     </RelativeLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

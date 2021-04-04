@@ -30,7 +30,7 @@
                 android:id="@+id/item_cost"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/amethysta"
+                android:fontFamily="@font/aclonica"
                 android:text="1300 RSD"
                 android:textColor="@color/sivozelena"
                 android:textSize="18sp" />
@@ -43,7 +43,7 @@
                 android:textColor="@color/prljavoroza"
                 android:text="Aelita"
 
-                android:fontFamily="@font/amethysta"/>
+                android:fontFamily="@font/aclonica"/>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

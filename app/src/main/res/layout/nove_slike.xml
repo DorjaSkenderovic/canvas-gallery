@@ -33,7 +33,7 @@
             android:fontFamily="@font/aclonica"
             android:padding="6dp"
             android:text="NOVO"
-            android:textColor="@color/plavozelena"
+            android:textColor="@color/plavolila"
             android:textSize="13sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/nova_slika"

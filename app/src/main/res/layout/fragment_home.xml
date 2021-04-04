@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/aclonica"
-                android:textColor="@color/plavozelena"
+                android:textColor="@color/plavolila"
                 android:text="Kategorije"
                 android:textSize="21sp"
                 android:textStyle="bold" />
@@ -75,7 +75,7 @@
                         android:layout_marginLeft="9dp"
                         android:fontFamily="@font/aclonica"
                         android:text="Novo u ponudi"
-                        android:textColor="@color/plavozelena"
+                        android:textColor="@color/plavolila"
                         android:textSize="21sp"
                         android:textStyle="bold" />
 
@@ -110,7 +110,7 @@
                     android:layout_marginBottom="3dp"
                     android:fontFamily="@font/aclonica"
                     android:text="Ponuda nedelje"
-                    android:textColor="@color/plavozelena"
+                    android:textColor="@color/plavolila"
                     android:textSize="21sp"
                     android:textStyle="bold" />
 

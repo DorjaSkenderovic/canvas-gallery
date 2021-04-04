@@ -10,6 +10,7 @@
         android:theme="@style/ToolbarColoredBackArrow"
         android:id="@+id/show_all_toolbar"
         android:layout_width="match_parent"
+        android:layout_marginLeft="5dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,10 +20,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/show_all_rec"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/show_all_toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/show_all_toolbar"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
