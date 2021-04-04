@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
         if( id==R.id.menu_logout){
             auth.signOut();
-            startActivity(new Intent(MainActivity.this,LoginActivity.class));
+            startActivity(new Intent(MainActivity.this,WelcomeActivity.class));
             finish();
 
         }else if (id == R.id.menu_my_cart){

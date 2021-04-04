@@ -7,11 +7,18 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Canvas Galerija"
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CanvasGalerija">
-        <activity android:name=".activities.PaymentActivity"></activity>
+        <activity android:name=".activities.WelcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.PaymentActivity" />
         <activity android:name=".activities.AddAddressActivity" />
         <activity android:name=".activities.AddressActivity" />
         <activity android:name=".activities.CartActivity" />
@@ -19,14 +26,12 @@
         <activity android:name=".activities.DetailedActivity" />
         <activity android:name=".activities.OnBoardingActivity" />
         <activity android:name=".activities.RegistrationActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".activities.LoginActivity" />
-        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.MainActivity">
+
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"
