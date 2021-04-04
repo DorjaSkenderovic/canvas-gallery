@@ -33,6 +33,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="Nastavi"
+            android:fontFamily="@font/aclonica"
             android:textStyle="bold"/>
 
         <LinearLayout
