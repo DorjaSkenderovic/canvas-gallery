@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.canvasgalerija.R;
-import com.example.canvasgalerija.activities.MainActivity;
+import com.example.canvasgalerija.activities.CartActivity;
 import com.example.canvasgalerija.models.CartModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -26,11 +26,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     Context context;
     List<CartModel> list;
     int totalAmount = 0;
+    private CartAdapter adapter;
 
     public CartAdapter(Context context, List<CartModel> list) {
         this.context = context;
         this.list = list;
-    }
+        this.adapter= adapter;    }
 
     @NonNull
     @Override
@@ -49,13 +50,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                list.remove(position);
                 deleteItemFromFirestore(list.get(position).getId());
+                list.remove(position);
+                notifyDataSetChanged();
 
-                Intent intent = new Intent(context, MainActivity.class);
+                Intent intent = new Intent(context, CartActivity.class);
                 context.startActivity(intent);
 
-                notifyDataSetChanged();
 
                 return true;
             }
