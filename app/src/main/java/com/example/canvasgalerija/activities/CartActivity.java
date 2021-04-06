@@ -38,7 +38,7 @@ public class CartActivity extends AppCompatActivity {
     CartAdapter cartAdapter;
     private FirebaseAuth auth;
     private FirebaseFirestore firestore;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,8 +76,13 @@ public class CartActivity extends AppCompatActivity {
 
                 if(task.isSuccessful()){
                     for (DocumentSnapshot doc :task.getResult().getDocuments()){
-
-                        CartModel cartModel = doc.toObject(CartModel.class);
+                        CartModel cartModel = new CartModel(
+                                doc.getId(),
+                                doc.getString("productImg"),
+                                doc.getString("productName"),
+                                doc.getString("productPrice"),
+                                Integer.parseInt( doc.get("totalPrice").toString()),
+                                doc.getString("totalQuantity"));
                         cartModelList.add(cartModel);
                         cartAdapter.notifyDataSetChanged();
                     }
