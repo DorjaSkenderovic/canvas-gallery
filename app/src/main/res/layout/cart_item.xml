@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="5dp"
+    android:elevation="4dp"
+    android:layout_margin="5dp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#121215"
+        android:orientation="vertical"
+        android:padding="7dp">
+
+        <ImageView
+            android:id="@+id/product_img"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/potret4" />
+
+        <TextView
+            android:id="@+id/product_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginStart="12dp"
+            android:layout_toEndOf="@+id/product_img"
+            android:text="Ime slike"
+            android:fontFamily="@font/aclonica"
+            android:textSize="24sp"
+            android:textColor="@color/plavolila"/>
+
+        <TextView
+            android:id="@+id/product_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/product_name"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/product_img"
+            android:fontFamily="@font/aclonica"
+            android:text="1000"
+            android:textColor="@color/darkblue"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/product_price"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="1.5dp"
+            android:layout_toEndOf="@+id/product_price"
+            android:fontFamily="@font/aclonica"
+            android:text=" RSD kom"
+            android:textColor="@color/plavolila"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/total_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/product_price"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/product_img"
+            android:fontFamily="@font/aclonica"
+            android:text="0"
+            android:textColor="@color/svetloplava"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/total_quantity"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="1.5dp"
+            android:layout_toEndOf="@+id/total_quantity"
+            android:fontFamily="@font/aclonica"
+            android:text=" kom"
+            android:textColor="@color/plavolila"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/total_quantity"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="0dp"
+            android:layout_toEndOf="@+id/product_img"
+            android:fontFamily="@font/aclonica"
+            android:text="1000"
+            android:textColor="@color/prljavoroza"
+            android:textSize="30sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/total_price"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="2.5dp"
+            android:layout_toEndOf="@+id/total_price"
+            android:fontFamily="@font/aclonica"
+            android:text=" RSD"
+            android:textColor="@color/plavolila"
+            android:textSize="18sp" />
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

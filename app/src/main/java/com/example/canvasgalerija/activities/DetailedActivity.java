@@ -23,8 +23,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.HashMap;
 
 public class DetailedActivity extends AppCompatActivity {
@@ -105,7 +103,7 @@ public class DetailedActivity extends AppCompatActivity {
             totalPrice = noveSlikeModel.getPrice() * totalQuantity;
         }
 
-        //Vas izbor
+        //Ponuda nedelje
         if (vasIzborModel != null) {
             Glide.with(getApplicationContext()).load(vasIzborModel.getImg_url()).into(detailedImg);
             name.setText(vasIzborModel.getName());
@@ -193,22 +191,12 @@ public class DetailedActivity extends AppCompatActivity {
     }
 
     private void addToCart() {
-        String saveCurrentTime,saveCurrentDate;
-
-        Calendar calForDate = Calendar.getInstance();
-
-        SimpleDateFormat currentDate = new SimpleDateFormat("dd.MM.yyyy.");
-        saveCurrentDate = currentDate.format(calForDate.getTime());
-
-        SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
-        saveCurrentTime = currentTime.format(calForDate.getTime());
 
         final HashMap<String,Object> cartMap = new HashMap<>();
 
         cartMap.put("productName", name.getText().toString());
         cartMap.put("productPrice",price.getText().toString());
-        cartMap.put("currentTime",saveCurrentTime);
-        cartMap.put("currentDate",saveCurrentDate);
+        cartMap.put("productImg",String.valueOf(detailedImg));
         cartMap.put("totalQuantity",quantity.getText().toString());
         cartMap.put("totalPrice",totalPrice);
 

@@ -2,30 +2,30 @@ package com.example.canvasgalerija.models;
 
 public class CartModel {
 
-    String currentDate;
-    String currentTime;
+
+    String productImg;
     String productPrice;
     String productName;
     int totalPrice;
     String totalQuantity;
 
+    public String getProductImg() {
+        return productImg;
+    }
+
+    public void setProductImg(String productImg) {
+        this.productImg = productImg;
+    }
+
     public CartModel() {
     }
 
-    public String getCurrentDate() {
-        return currentDate;
+    public String getImg_url() {
+        return productImg;
     }
 
-    public void setCurrentDate(String currentDate) {
-        this.currentDate = currentDate;
-    }
-
-    public String getCurrentTime() {
-        return currentTime;
-    }
-
-    public void setCurrentTime(String currentTime) {
-        this.currentTime = currentTime;
+    public void setImg_url(String img_url) {
+        this.productImg = img_url;
     }
 
     public String getProductPrice() {
@@ -60,9 +60,8 @@ public class CartModel {
         this.totalQuantity = totalQuantity;
     }
 
-    public CartModel(String currentDate, String currentTime, String productPrice, String productName, int totalPrice, String totalQuantity) {
-        this.currentDate = currentDate;
-        this.currentTime = currentTime;
+    public CartModel(String productImg,String productPrice, String productName, int totalPrice, String totalQuantity) {
+        this.productImg = productImg;
         this.productPrice = productPrice;
         this.productName = productName;
         this.totalPrice = totalPrice;

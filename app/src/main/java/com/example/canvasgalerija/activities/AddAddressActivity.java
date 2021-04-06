@@ -99,6 +99,7 @@ public class AddAddressActivity extends AppCompatActivity {
                             if(task.isSuccessful()){
                                 Toast.makeText(AddAddressActivity.this,"Uspešno ste uneli podatke.",Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(AddAddressActivity.this,AddressActivity.class));
+                                finish();
                             }
                         }
                     });
