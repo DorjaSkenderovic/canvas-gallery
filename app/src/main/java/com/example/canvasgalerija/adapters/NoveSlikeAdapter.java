@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.example.canvasgalerija.R;
 import com.example.canvasgalerija.activities.DetailedActivity;
 import com.example.canvasgalerija.models.NoveSlikeModel;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 
@@ -22,6 +24,7 @@ public class NoveSlikeAdapter extends RecyclerView.Adapter<NoveSlikeAdapter.View
 
     private Context context;
     private List<NoveSlikeModel> list;
+    private FirebaseAuth auth;
 
     public NoveSlikeAdapter(Context context, List<NoveSlikeModel> list){
         this.context = context;
@@ -42,11 +45,16 @@ public class NoveSlikeAdapter extends RecyclerView.Adapter<NoveSlikeAdapter.View
         holder.newPrice.setText(String.valueOf(list.get(position).getPrice()));
 
         holder.itemView.setOnClickListener(new View.OnClickListener(){
+
             @Override
             public void onClick(View v) {
+                auth = FirebaseAuth.getInstance();
+                if(auth.getCurrentUser() != null){
                 Intent intent = new Intent(context, DetailedActivity.class);
                 intent.putExtra("detailed",list.get(position));
                 context.startActivity(intent);
+            }else {
+                    Toast.makeText(context, "Prijavite se na svoj nalog da biste nastavili.", Toast.LENGTH_SHORT).show();}
             }
         });
 

@@ -15,39 +15,38 @@ import com.example.canvasgalerija.R;
 import com.example.canvasgalerija.fragments.HomeFragment;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity {
+public class GuestActivity extends AppCompatActivity {
     private int currentApiVersion;
 
-    Fragment homeFragment;
+    Fragment guestFragment;
     FirebaseAuth auth;
     Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_guest);
 
-        auth = FirebaseAuth.getInstance();
-        toolbar = findViewById(R.id.home_toolbar);
+        toolbar = findViewById(R.id.guest_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24);
 
-        homeFragment = new HomeFragment();
-        loadFragment(homeFragment);
+        guestFragment = new HomeFragment();
+        loadFragment(guestFragment);
 
     }
 
-    private void loadFragment(Fragment homeFragment){
+    private void loadFragment(Fragment guestFragment){
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.home_container,homeFragment);
+        transaction.replace(R.id.guest_container,guestFragment);
         transaction.commit();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu,menu);
+        getMenuInflater().inflate(R.menu.guest_main_menu,menu);
         return true;
     }
 
@@ -55,13 +54,11 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
-        if( id==R.id.menu_logout){
-            auth.signOut();
-            startActivity(new Intent(MainActivity.this,WelcomeActivity.class));
-            finish();
+        if( id==R.id.menu_login){
+            startActivity(new Intent(GuestActivity.this,LoginActivity.class));
 
-        }else if (id == R.id.menu_my_cart){
-            startActivity(new Intent(MainActivity.this,CartActivity.class));
+        }else if (id == R.id.menu_register){
+            startActivity(new Intent(GuestActivity.this,RegistrationActivity.class));
         }
         return true;
     }

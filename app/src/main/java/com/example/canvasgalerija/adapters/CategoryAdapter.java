@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.example.canvasgalerija.R;
 import com.example.canvasgalerija.activities.ShowAllActivity;
 import com.example.canvasgalerija.models.CategoryModel;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHl
 
     private Context context;
     private List<CategoryModel> list;
+    private FirebaseAuth auth;
 
     public CategoryAdapter(Context context, List<CategoryModel> list) {
         this.context = context;

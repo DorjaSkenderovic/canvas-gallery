@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.example.canvasgalerija.R;
 import com.example.canvasgalerija.activities.DetailedActivity;
 import com.example.canvasgalerija.models.ShowAllModel;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 
@@ -22,6 +24,7 @@ public class ShowAllAdapter extends RecyclerView.Adapter<ShowAllAdapter.ViewHold
 
     private Context context;
     private List<ShowAllModel> list;
+    private FirebaseAuth auth;
 
     public ShowAllAdapter(Context context, List<ShowAllModel> list) {
         this.context = context;
@@ -44,10 +47,15 @@ public class ShowAllAdapter extends RecyclerView.Adapter<ShowAllAdapter.ViewHold
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                auth = FirebaseAuth.getInstance();
+                if(auth.getCurrentUser() != null){
                 Intent intent = new Intent(context, DetailedActivity.class);
                 intent.putExtra("detailed",list.get(position));
                 context.startActivity(intent);
 
+            }else {
+                    Toast.makeText(context, "Prijavite se na svoj nalog da biste nastavili.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

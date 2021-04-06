@@ -23,14 +23,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.HashMap;
 
 public class DetailedActivity extends AppCompatActivity {
 
     ImageView detailedImg;
-    TextView rating,name,price,quantity;
+    TextView rating,name,price,quantity,description;
     Button addToCart,buyNow;
     ImageView addItems,removeItems;
 
@@ -85,6 +83,7 @@ public class DetailedActivity extends AppCompatActivity {
         name = findViewById(R.id.detailed_name);
         rating = findViewById(R.id.rating);
         price = findViewById(R.id.detailed_price);
+        description = findViewById(R.id.detailed_desc);
 
         addToCart = findViewById(R.id.add_to_cart);
         buyNow = findViewById(R.id.buy_now);
@@ -96,6 +95,7 @@ public class DetailedActivity extends AppCompatActivity {
         if (noveSlikeModel != null) {
             Glide.with(getApplicationContext()).load(noveSlikeModel.getImg_url()).into(detailedImg);
             name.setText(noveSlikeModel.getName());
+            description.setText(noveSlikeModel.getDescription());
             rating.setText(noveSlikeModel.getRating());
             price.setText(String.valueOf(noveSlikeModel.getPrice()));
             name.setText(noveSlikeModel.getName());
@@ -103,12 +103,13 @@ public class DetailedActivity extends AppCompatActivity {
             totalPrice = noveSlikeModel.getPrice() * totalQuantity;
         }
 
-        //Vas izbor
+        //Ponuda nedelje
         if (vasIzborModel != null) {
             Glide.with(getApplicationContext()).load(vasIzborModel.getImg_url()).into(detailedImg);
             name.setText(vasIzborModel.getName());
             rating.setText(vasIzborModel.getRating());
             price.setText(String.valueOf(vasIzborModel.getPrice()));
+            description.setText(vasIzborModel.getDescription());
             name.setText(vasIzborModel.getName());
 
             totalPrice = vasIzborModel.getPrice() * totalQuantity;
@@ -119,6 +120,7 @@ public class DetailedActivity extends AppCompatActivity {
             Glide.with(getApplicationContext()).load(showAllModel.getImg_url()).into(detailedImg);
             name.setText(showAllModel.getName());
             rating.setText(showAllModel.getRating());
+            description.setText(showAllModel.getDescription());
             price.setText(String.valueOf(showAllModel.getPrice()));
             name.setText(showAllModel.getName());
 
@@ -189,22 +191,12 @@ public class DetailedActivity extends AppCompatActivity {
     }
 
     private void addToCart() {
-        String saveCurrentTime,saveCurrentDate;
-
-        Calendar calForDate = Calendar.getInstance();
-
-        SimpleDateFormat currentDate = new SimpleDateFormat("dd.MM.yyyy.");
-        saveCurrentDate = currentDate.format(calForDate.getTime());
-
-        SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
-        saveCurrentTime = currentTime.format(calForDate.getTime());
 
         final HashMap<String,Object> cartMap = new HashMap<>();
 
         cartMap.put("productName", name.getText().toString());
         cartMap.put("productPrice",price.getText().toString());
-        cartMap.put("currentTime",saveCurrentTime);
-        cartMap.put("currentDate",saveCurrentDate);
+        cartMap.put("productImg",String.valueOf(detailedImg));
         cartMap.put("totalQuantity",quantity.getText().toString());
         cartMap.put("totalPrice",totalPrice);
 

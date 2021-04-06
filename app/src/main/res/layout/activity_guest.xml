@@ -4,28 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.ShowAllActivity">
+    tools:context=".activities.GuestActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:theme="@style/ToolbarColoredBackArrow"
-        android:id="@+id/show_all_toolbar"
+        android:id="@+id/guest_toolbar"
         android:layout_width="match_parent"
-        android:layout_marginLeft="5dp"
         android:layout_height="wrap_content"
+        android:background="#121212"
+        app:titleTextColor="@color/plavolila"
+        android:theme="@style/ToolbarColoredBackArrow"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title=" "/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/show_all_rec"
-        android:layout_width="match_parent"
+    <FrameLayout
+        android:id="@+id/guest_container"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/show_all_toolbar"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/guest_toolbar"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

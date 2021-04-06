@@ -4,11 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.HomeFragment">
+    tools:context=".fragments.GuestFragment">
 
 
     <LinearLayout
-        android:id="@+id/home_layout"
+        android:id="@+id/guest_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">

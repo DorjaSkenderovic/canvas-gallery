@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.Toolbar
+        android:layout_marginLeft="5dp"
         android:theme="@style/ToolbarColoredBackArrow"
         android:id="@+id/detailed_toolbar"
         android:layout_width="match_parent"
@@ -32,12 +33,10 @@
         android:id="@+id/cardview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="128dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginRight="0dp"
         android:backgroundTint="#00000000"
-        android:outlineAmbientShadowColor="@color/sivozelena"
-        android:outlineSpotShadowColor="@color/prljavoroza"
 
         android:translationY="-50dp"
 
@@ -61,9 +60,9 @@
                     android:id="@+id/detailed_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/amethysta"
+                    android:fontFamily="@font/aclonica"
                     android:text="Ime slike"
-                    android:textColor="@color/darkblue"
+                    android:textColor="@color/plavolila"
                     android:textSize="25sp"
                     android:textStyle="bold" />
 
@@ -75,7 +74,7 @@
                     android:layout_toStartOf="@id/my_rating"
                     android:fontFamily="@font/amethysta"
                     android:text="5"
-                    android:textColor="@color/darkblue"
+                    android:textColor="@color/plavolila"
                     android:textSize="16sp" />
 
                 <RatingBar
@@ -84,6 +83,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
+                    android:progressBackgroundTint="@color/prljavoroza"
                     android:layout_marginTop="10dp"
                     android:isIndicator="true"
                     android:numStars="5"
@@ -95,18 +95,19 @@
                 android:id="@+id/detailed_desc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/amethysta"
-                android:text="neki opis u par redova no ne znam sta bih vise mogla napisati. mozda neki opis slike, pojma nemam cemu je ovo namenjeno." />
+                android:layout_marginTop="15dp"
+                android:gravity="start"
+                android:fontFamily="@font/aclonica"
+                android:text="neki opis" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/amethysta"
+                android:fontFamily="@font/aclonica"
                 android:text="Cena"
-                android:textColor="@color/darkblue"
+                android:textColor="@color/plavolila"
                 android:textSize="21sp"
                 android:textStyle="bold" />
 
@@ -120,17 +121,19 @@
                     android:id="@+id/detailed_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/amethysta"
+                    android:fontFamily="@font/aclonica"
                     android:text="1000"
-                    android:textColor="@color/darkblue"
+                    android:textSize="24sp"
+                    android:textColor="@color/prljavoroza"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/amethysta"
-                    android:text="RSD"
-                    android:textColor="@color/darkblue"
+                    android:fontFamily="@font/aclonica"
+                    android:text=" RSD"
+                    android:textColor="@color/plavolila"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -139,7 +142,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:gravity="center_horizontal"
+                android:gravity="right"
                 android:orientation="horizontal">
 
 
@@ -148,22 +151,23 @@
                     android:layout_width="40dp"
                     android:layout_height="match_parent"
                     android:layout_marginRight="7dp"
-                    android:src="@drawable/plusicon" />
+                    android:src="@drawable/ic_baseline_add_24" />
 
                 <TextView
                     android:id="@+id/quantity"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="44dp"
                     android:text="1"
+                    android:textColor="@color/plavolila"
                     android:textSize="30sp"
                     android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/remove_item"
                     android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_height="44dp"
                     android:layout_marginLeft="7dp"
-                    android:src="@drawable/iconminus" />
+                    android:src="@drawable/ic_baseline_remove_24" />
 
             </LinearLayout>
 
@@ -181,6 +185,7 @@
         android:drawableTint="@color/prljavoroza"
         android:padding="14dp"
         android:text="Dodaj u korpu"
+        android:fontFamily="@font/aclonica"
         android:textAllCaps="false"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/buy_now"
@@ -188,7 +193,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardview"
         app:layout_constraintVertical_bias="1.0"
-        app:layout_constraintWidth_percent=".8" />
+        app:layout_constraintWidth_percent=".9" />
 
     <Button
         android:id="@+id/buy_now"
@@ -197,6 +202,7 @@
         android:layout_marginBottom="16dp"
         android:drawableLeft="@drawable/shoppingcart"
         android:drawableTint="@color/prljavoroza"
+        android:fontFamily="@font/aclonica"
         android:padding="14dp"
         android:text="Kupi odmah"
         android:textAllCaps="false"
@@ -204,7 +210,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintWidth_percent=".8" />
+        app:layout_constraintWidth_percent=".9" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

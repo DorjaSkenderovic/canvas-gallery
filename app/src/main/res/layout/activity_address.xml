@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:layout_marginLeft="5dp"
         android:background="#121212"
         android:theme="@style/ToolbarColoredBackArrow"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,11 +35,11 @@
 
     <Button
         android:id="@+id/add_address_btn"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:text="Add Address"
+        android:text="Dodaj podatke"
         android:fontFamily="@font/aclonica"
         android:textColor="@color/prljavoroza"
         android:backgroundTint="@color/plavolila"
@@ -48,12 +49,12 @@
 
     <Button
         android:id="@+id/payment_btn"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:backgroundTint="@color/plavolila"
         android:fontFamily="@font/aclonica"
-        android:text="Continue to payment"
+        android:text="Završi kupovinu"
         android:textColor="@color/prljavoroza"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
