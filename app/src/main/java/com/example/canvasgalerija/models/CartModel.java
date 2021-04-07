@@ -2,12 +2,14 @@ package com.example.canvasgalerija.models;
 
 public class CartModel {
 
-
+    String id;
     String productImg;
     String productPrice;
     String productName;
     int totalPrice;
     String totalQuantity;
+
+    public String getId() {return id;}
 
     public String getProductImg() {
         return productImg;
@@ -60,7 +62,8 @@ public class CartModel {
         this.totalQuantity = totalQuantity;
     }
 
-    public CartModel(String productImg,String productPrice, String productName, int totalPrice, String totalQuantity) {
+    public CartModel(String id, String productImg,String productPrice, String productName, int totalPrice, String totalQuantity) {
+        this.id = id;
         this.productImg = productImg;
         this.productPrice = productPrice;
         this.productName = productName;

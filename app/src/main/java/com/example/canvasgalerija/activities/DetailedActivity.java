@@ -14,6 +14,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.example.canvasgalerija.R;
+import com.example.canvasgalerija.models.CartModel;
 import com.example.canvasgalerija.models.NoveSlikeModel;
 import com.example.canvasgalerija.models.ShowAllModel;
 import com.example.canvasgalerija.models.VasIzborModel;
@@ -24,6 +25,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class DetailedActivity extends AppCompatActivity {
 
@@ -31,6 +33,8 @@ public class DetailedActivity extends AppCompatActivity {
     TextView rating,name,price,quantity,description;
     Button addToCart,buyNow;
     ImageView addItems,removeItems;
+    List<CartModel> list;
+    int totalAmount = 0;
 
     Toolbar toolbar;
 
@@ -208,8 +212,5 @@ public class DetailedActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-
-
     }
 }

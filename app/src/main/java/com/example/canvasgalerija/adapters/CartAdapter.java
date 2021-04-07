@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.canvasgalerija.R;
 import com.example.canvasgalerija.models.CartModel;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 
@@ -23,11 +25,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     Context context;
     List<CartModel> list;
     int totalAmount = 0;
+    private CartAdapter adapter;
 
     public CartAdapter(Context context, List<CartModel> list) {
         this.context = context;
         this.list = list;
-    }
+        this.adapter= adapter;    }
 
     @NonNull
     @Override
@@ -43,11 +46,27 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         holder.name.setText(list.get(position).getProductName());
         holder.totalQuantity.setText(list.get(position).getTotalQuantity());
         holder.totalPrice.setText(String.valueOf(list.get(position).getTotalPrice()));
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                deleteItemFromFirestore(list.get(position).getId());
+                list.remove(position);
+                notifyDataSetChanged();
+
+/*              Intent intent = new Intent(context, CartActivity.class);
+                context.startActivity(intent);*/
+
+                return true;
+
+            }
+
+        });
 
         //Total amount
         totalAmount = totalAmount + list.get(position).getTotalPrice();
         Intent intent = new Intent("TotalAmount");
         intent.putExtra("totalAmount", totalAmount);
+
 
         LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
 
@@ -56,6 +75,14 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     @Override
     public int getItemCount() {
         return list.size();
+    }
+
+    public void deleteItemFromFirestore(String id) {
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+
+        firestore.collection("AddToCart").document(auth.getCurrentUser().getUid())
+                .collection("User").document(id).delete();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
