@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +35,7 @@ public class CartActivity extends AppCompatActivity {
     int overAllTotalAmount;
     TextView overAllAmount;
     Toolbar toolbar;
+    Button buyNow;
     RecyclerView recyclerView;
     List<CartModel> cartModelList;
     CartAdapter cartAdapter;
@@ -50,6 +53,8 @@ public class CartActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.my_cart_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        buyNow = findViewById(R.id.buy_now);
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +100,18 @@ public class CartActivity extends AppCompatActivity {
 
             }
         });
+        buyNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!cartModelList.isEmpty()){
+                Intent intent = new Intent(CartActivity.this,AddressActivity.class);
+                startActivity(intent);
+
+            }else {
+                    Toast.makeText(CartActivity.this, "Korpa je prazna.", Toast.LENGTH_SHORT).show();
+                }}
+        });
+
     }
 
     public BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {

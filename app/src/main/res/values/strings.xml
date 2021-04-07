@@ -8,7 +8,7 @@
 
     <string name="guest_first_slide">Za uređenje Vašeg doma</string>
     <string name="guest_second_slide">Kao gost možeš da pregledaš sadržaj</string>
-    <string name="guest_third_slide">Ne možeš da kupuješ slike</string>
+    <string name="guest_third_slide">Ali ne možeš da kupuješ slike</string>
     <string name="guest_fourth_slide">Kreiraj svoj nalog</string>
 
     <string name="description">Zidne slike štampane na canvas platnu.</string>
