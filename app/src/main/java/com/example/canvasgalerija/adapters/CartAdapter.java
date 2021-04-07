@@ -2,6 +2,7 @@ package com.example.canvasgalerija.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,52 +25,36 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
     Context context;
     List<CartModel> list;
-    int totalAmount = 0;
-    private CartAdapter adapter;
 
     public CartAdapter(Context context, List<CartModel> list) {
         this.context = context;
         this.list = list;
-        this.adapter= adapter;    }
+   }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_item,parent,false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
         Glide.with(context).load(list.get(position).getImg_url()).into(holder.img_url);
         holder.price.setText(list.get(position).getProductPrice());
         holder.name.setText(list.get(position).getProductName());
         holder.totalQuantity.setText(list.get(position).getTotalQuantity());
         holder.totalPrice.setText(String.valueOf(list.get(position).getTotalPrice()));
+
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 deleteItemFromFirestore(list.get(position).getId());
                 list.remove(position);
                 notifyDataSetChanged();
-
-/*              Intent intent = new Intent(context, CartActivity.class);
-                context.startActivity(intent);*/
-
                 return true;
-
             }
-
         });
-
-        //Total amount
-        totalAmount = totalAmount + list.get(position).getTotalPrice();
-        Intent intent = new Intent("TotalAmount");
-        intent.putExtra("totalAmount", totalAmount);
-
-
-        LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
-
     }
 
     @Override

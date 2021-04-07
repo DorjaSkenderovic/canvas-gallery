@@ -58,9 +58,6 @@ public class CartActivity extends AppCompatActivity {
             }
         });
 
-        //podaci iz cartadapter
-        LocalBroadcastManager.getInstance(this)
-                .registerReceiver(mMessageReceiver, new IntentFilter("TotalAmount"));
 
         overAllAmount = findViewById(R.id.textView3);
         recyclerView = findViewById(R.id.cart_rec);
@@ -79,27 +76,19 @@ public class CartActivity extends AppCompatActivity {
                         CartModel cartModel = new CartModel(
                                 doc.getId(),
                                 doc.getString("productImg"),
-                                doc.getString("productName"),
                                 doc.getString("productPrice"),
+                                doc.getString("productName"),
                                 Integer.parseInt( doc.get("totalPrice").toString()),
                                 doc.getString("totalQuantity"));
                         cartModelList.add(cartModel);
+                        overAllTotalAmount += cartModel.getTotalPrice();
+                        overAllAmount.setText("Ukupna cena: "+overAllTotalAmount+" RSD");
+
                         cartAdapter.notifyDataSetChanged();
                     }
                 }
 
             }
         });
-
     }
-
-    public BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-
-            int totalBill = intent.getIntExtra("totalAmount",0);
-            overAllAmount.setText("Ukupna cena: "+totalBill+" RSD");
-
-        }
-    };
 }
