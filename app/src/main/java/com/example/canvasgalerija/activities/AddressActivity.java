@@ -15,9 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.canvasgalerija.R;
 import com.example.canvasgalerija.adapters.AddressAdapter;
 import com.example.canvasgalerija.models.AddressModel;
-import com.example.canvasgalerija.models.NoveSlikeModel;
-import com.example.canvasgalerija.models.ShowAllModel;
-import com.example.canvasgalerija.models.VasIzborModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -76,20 +73,12 @@ public class AddressActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
 
-                /*if(task.isSuccessful()){
-                    for(DocumentSnapshot doc : task.getResult().getDocuments()) {
-
-                        AddressModel addressModel = doc.toObject(AddressModel.class);
-                        addressModelList.add(addressModel);
-                        addressAdapter.notifyDataSetChanged();
-                    }
-                }*/
 
                 if(task.isSuccessful()){
                     for (DocumentSnapshot doc :task.getResult().getDocuments()){
                         AddressModel addressModel = new AddressModel(
-                                doc.getId(),
-                                doc.getString("userAddress"));
+                                doc.getString("userAddress"),
+                                doc.getId());
                         addressModelList.add(addressModel);
                         addressAdapter.notifyDataSetChanged();
                     }
@@ -102,27 +91,12 @@ public class AddressActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                    double amount = 0.0;
-                if (obj instanceof NoveSlikeModel) {
-                    NoveSlikeModel noveSlikeModel = (NoveSlikeModel) obj;
-                    amount = noveSlikeModel.getPrice();
-                }
-                if (obj instanceof VasIzborModel) {
-                    VasIzborModel vasIzborModel = (VasIzborModel) obj;
-                    amount = vasIzborModel.getPrice();
-                }
-                if (obj instanceof ShowAllModel) {
-                    ShowAllModel showAllModel = (ShowAllModel) obj;
-                    amount = showAllModel.getPrice();
-                }
-
                 if(addressModelList.isEmpty()){
                     Toast.makeText(AddressActivity.this, "Dodaj podatke za isporuku.", Toast.LENGTH_SHORT).show();
                 } else if(addressAdapter.selectedAddress() == "") {
                     Toast.makeText(AddressActivity.this, "Izberi podatke za isporuku.", Toast.LENGTH_SHORT).show();
                 } else {
-                    Intent intent = new Intent(AddressActivity.this, PaymentActivity.class);
-                    intent.putExtra("amount", amount);
+                    Intent intent = new Intent(AddressActivity.this, MainActivity.class);
                     startActivity(intent);
                 }
             }
