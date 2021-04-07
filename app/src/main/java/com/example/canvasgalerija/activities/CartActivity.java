@@ -58,12 +58,16 @@ public class CartActivity extends AppCompatActivity {
             }
         });
 
+        //podaci iz cartadapter
+        LocalBroadcastManager.getInstance(this)
+                .registerReceiver(mMessageReceiver, new IntentFilter("TotalAmount"));
+
 
         overAllAmount = findViewById(R.id.textView3);
         recyclerView = findViewById(R.id.cart_rec);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         cartModelList = new ArrayList<>();
-        cartAdapter = new CartAdapter(this, cartModelList);
+        cartAdapter = new CartAdapter(this, cartModelList, overAllTotalAmount);
         recyclerView.setAdapter(cartAdapter);
 
         firestore.collection("AddToCart").document(auth.getCurrentUser().getUid())
@@ -82,6 +86,7 @@ public class CartActivity extends AppCompatActivity {
                                 doc.getString("totalQuantity"));
                         cartModelList.add(cartModel);
                         overAllTotalAmount += cartModel.getTotalPrice();
+
                         overAllAmount.setText("Ukupna cena: "+overAllTotalAmount+" RSD");
 
                         cartAdapter.notifyDataSetChanged();
@@ -91,4 +96,14 @@ public class CartActivity extends AppCompatActivity {
             }
         });
     }
+
+    public BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            overAllTotalAmount = intent.getIntExtra("totalAmount",0);
+            overAllAmount.setText("Ukupna cena: "+overAllTotalAmount+" RSD");
+
+        }
+    };
 }
