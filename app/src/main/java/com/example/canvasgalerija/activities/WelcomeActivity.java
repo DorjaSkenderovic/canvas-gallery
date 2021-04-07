@@ -58,7 +58,7 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     public void guest(View view) {
-        startActivity(new Intent(WelcomeActivity.this, GuestActivity.class));
+        startActivity(new Intent(WelcomeActivity.this, GuestOnBoardingActivity.class));
         finish();
     }
     public void login(View view) {
