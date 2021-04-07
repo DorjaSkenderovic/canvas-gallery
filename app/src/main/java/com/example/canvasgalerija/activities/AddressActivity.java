@@ -76,10 +76,20 @@ public class AddressActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
 
-                if(task.isSuccessful()){
+                /*if(task.isSuccessful()){
                     for(DocumentSnapshot doc : task.getResult().getDocuments()) {
 
                         AddressModel addressModel = doc.toObject(AddressModel.class);
+                        addressModelList.add(addressModel);
+                        addressAdapter.notifyDataSetChanged();
+                    }
+                }*/
+
+                if(task.isSuccessful()){
+                    for (DocumentSnapshot doc :task.getResult().getDocuments()){
+                        AddressModel addressModel = new AddressModel(
+                                doc.getId(),
+                                doc.getString("userAddress"));
                         addressModelList.add(addressModel);
                         addressAdapter.notifyDataSetChanged();
                     }

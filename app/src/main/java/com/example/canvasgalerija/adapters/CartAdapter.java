@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.canvasgalerija.R;
-import com.example.canvasgalerija.activities.CartActivity;
 import com.example.canvasgalerija.models.CartModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -54,12 +53,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
                 list.remove(position);
                 notifyDataSetChanged();
 
-                Intent intent = new Intent(context, CartActivity.class);
-                context.startActivity(intent);
-
+/*              Intent intent = new Intent(context, CartActivity.class);
+                context.startActivity(intent);*/
 
                 return true;
+
             }
+
         });
 
         //Total amount

@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.canvasgalerija.R;
 import com.example.canvasgalerija.models.AddressModel;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 
@@ -61,11 +63,37 @@ public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ViewHold
             }
         });
 
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                deleteItemFromFirestore(addressModelList.get(position).getUserAddress());
+                addressModelList.remove(position);
+                notifyDataSetChanged();
+
+/*              Intent intent = new Intent(context, CartActivity.class);
+                context.startActivity(intent);*/
+
+                return true;
+
+            }
+
+        });
+
+
     }
 
     @Override
     public int getItemCount() {
         return addressModelList.size();
+    }
+
+
+    public void deleteItemFromFirestore(String id) {
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+
+        firestore.collection("CurrentUser").document(auth.getCurrentUser().getUid())
+                .collection("Address").document(id).delete();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
