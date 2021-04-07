@@ -12,28 +12,28 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import com.example.canvasgalerija.R;
 
-public class SliderAdapter extends PagerAdapter {
+public class GuestSliderAdapter extends PagerAdapter {
     private int currentApiVersion;
 
     Context context;
 
     LayoutInflater layoutInflater;
-    public SliderAdapter(Context context) {
+    public GuestSliderAdapter(Context context) {
         this.context = context;
     }
 
     int imagesArray[] ={
             R.drawable.logo,
-            R.drawable.second,
-            R.drawable.fourth,
-            R.drawable.fles
+            R.drawable.gost1,
+            R.drawable.gost2,
+            R.drawable.gost3
     };
 
     int headingArray[] ={
-            R.string.first_slide,
-            R.string.second_slide,
-            R.string.third_slide,
-            R.string.fourth_slide
+            R.string.guest_first_slide,
+            R.string.guest_second_slide,
+            R.string.guest_third_slide,
+            R.string.guest_fourth_slide
 
     };
 
