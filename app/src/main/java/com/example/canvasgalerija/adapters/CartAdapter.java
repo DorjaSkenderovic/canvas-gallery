@@ -25,11 +25,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
     Context context;
     List<CartModel> list;
+    int totalAmount;
 
-    public CartAdapter(Context context, List<CartModel> list) {
+    public CartAdapter(Context context, List<CartModel> list, int totalAmount) {
         this.context = context;
         this.list = list;
-   }
+        this.totalAmount = totalAmount;
+    }
 
     @NonNull
     @Override
@@ -50,6 +52,15 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             @Override
             public boolean onLongClick(View v) {
                 deleteItemFromFirestore(list.get(position).getId());
+                totalAmount = 0;
+                for(CartModel model: list) totalAmount += model.getTotalPrice();
+                totalAmount -= list.get(position).getTotalPrice();
+
+                Intent intent = new Intent("TotalAmount");
+                intent.putExtra("totalAmount", totalAmount);
+
+                LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+
                 list.remove(position);
                 notifyDataSetChanged();
                 return true;
