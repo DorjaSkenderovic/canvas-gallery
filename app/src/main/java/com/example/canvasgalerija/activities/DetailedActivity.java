@@ -30,6 +30,7 @@ import java.util.List;
 public class DetailedActivity extends AppCompatActivity {
 
     ImageView detailedImg;
+    String imageUrl;
     TextView rating,name,price,quantity,description;
     Button addToCart,buyNow;
     ImageView addItems,removeItems;
@@ -98,6 +99,7 @@ public class DetailedActivity extends AppCompatActivity {
         //Nove slike
         if (noveSlikeModel != null) {
             Glide.with(getApplicationContext()).load(noveSlikeModel.getImg_url()).into(detailedImg);
+            imageUrl = noveSlikeModel.getImg_url();
             name.setText(noveSlikeModel.getName());
             description.setText(noveSlikeModel.getDescription());
             rating.setText(noveSlikeModel.getRating());
@@ -110,6 +112,7 @@ public class DetailedActivity extends AppCompatActivity {
         //Ponuda nedelje
         if (vasIzborModel != null) {
             Glide.with(getApplicationContext()).load(vasIzborModel.getImg_url()).into(detailedImg);
+            imageUrl = vasIzborModel.getImg_url();
             name.setText(vasIzborModel.getName());
             rating.setText(vasIzborModel.getRating());
             price.setText(String.valueOf(vasIzborModel.getPrice()));
@@ -122,6 +125,7 @@ public class DetailedActivity extends AppCompatActivity {
         //Show All
         if (showAllModel != null) {
             Glide.with(getApplicationContext()).load(showAllModel.getImg_url()).into(detailedImg);
+            imageUrl = showAllModel.getImg_url();
             name.setText(showAllModel.getName());
             rating.setText(showAllModel.getRating());
             description.setText(showAllModel.getDescription());
@@ -200,7 +204,7 @@ public class DetailedActivity extends AppCompatActivity {
 
         cartMap.put("productName", name.getText().toString());
         cartMap.put("productPrice",price.getText().toString());
-        cartMap.put("productImg",String.valueOf(detailedImg));
+        cartMap.put("productImg", imageUrl);
         cartMap.put("totalQuantity",quantity.getText().toString());
         cartMap.put("totalPrice",totalPrice);
 
