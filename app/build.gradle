@@ -1,6 +1,15 @@
 plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
+    id "org.sonarqube" version "3.3"
+}
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "DorjaSkenderovic_canvas-gallery"
+    property "sonar.organization", "dorjaskenderovic"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
 }
 
 android {
